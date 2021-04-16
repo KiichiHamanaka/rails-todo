@@ -8,7 +8,8 @@
 export default {
   data: function () {
     return {
-      message: "Hello Vue!"
+      // この文字列が画面に表示されている
+      message: "Hello World !!!"
     }
   }
 }

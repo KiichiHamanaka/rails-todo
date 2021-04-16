@@ -11,10 +11,12 @@ services:
       - mysql-data:/var/lib/mysql
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    #command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: bash -c "rm -f tmp/pids/server.pid && bin/server"
     volumes:
       - .:/myapp
     ports:
+      - "5000:5000"
       - "3000:3000"
     depends_on:
       - db
