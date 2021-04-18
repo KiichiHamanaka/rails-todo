@@ -1,29 +1,20 @@
 <template>
   <div id="app">
-    {{json}}
+    <Header />
+    <CheckList />
   </div>
 </template>
 
 <script>
-import axios from "axios";
-
+import Header from './packs/conponents/Header.vue'
+import CheckList from './packs/conponents/CheckList.vue'
 export default {
-  data () {
-    return {
-      json: null
-    }
-  },
-  mounted () {
-    axios
-        .get('http://localhost:5000/api/tasks')
-        .then(response => (this.json = response))
+  components: {
+    CheckList,
+    Header
   }
 }
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
 </style>
