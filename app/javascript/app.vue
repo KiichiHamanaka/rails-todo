@@ -1,16 +1,22 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+    {{json}}
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
-  data: function () {
+  data () {
     return {
-      // この文字列が画面に表示されている
-      message: "Hello World !!!"
+      json: null
     }
+  },
+  mounted () {
+    axios
+        .get('http://localhost:5000/api/tasks')
+        .then(response => (this.json = response))
   }
 }
 </script>
